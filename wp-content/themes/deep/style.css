@@ -1,0 +1,1047 @@
+/*!
+Theme Name: Deep
+Theme URI: https://webnus.net/deep-wordpress-theme/
+Author: WEBNUS
+Author URI: https://webnus.net
+Description: Deep is a fast and fully customizable WordPress theme that also boasts a significant beauty with its modern and minimal design. It is created by professional and experienced developers to offer unparalleled speed. Deep WordPress theme has more than 130+ templates and demos (28 in Free) ready for your artistic touch. Its numerous demos are all fully customizable with Elementor and Visual Composer; just pick whichever suits you best. Whether it’s a blog website you are trying to create, a personal portfolio, or indeed a big business website, Deep is there for you and for any kind of website you wish to make. Our dedicated team spends all its time designing, developing, maintaining, and supporting the theme and its users. With Deep on your hands and Webnus support team at your back, you can conquer the world of WordPress websites.
+Version: 1.0.7
+Requires at least: 5.0
+Tested up to: 5.7.1
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: deep
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Domain Path: /languages
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+deep is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+	
+body #wrap #webnus-header-builder [data-id=whb-search-1510753749355]>.whb-search-form-box {
+  right: -20px !important;
+}
+
+body #wrap #webnus-header-builder [data-id=whb-social-1512558450783] .wh-social-icons-box .header-social-icons a i,
+.wh-social-icons-box .header-social-icons a i {
+  border: none !important;
+}
+
+.elementor-element-f477d00 .masonry {
+  height: 800px !important;
+}
+#wrap .home-video-btn img {
+  border-radius: 5px;
+  box-shadow: 0px 110px 100px -110px #26262682;
+}
+
+#wrap .home-video-btn i {
+  box-shadow: 0 0 0 5px #fff, 0 13px 100px #7736FF;
+  background-color: transparent;
+  background-image: linear-gradient(110deg, #7736ff 0%, #4521ff 100%);
+  color: #ffffff;
+  font-weight: bold;
+  padding: 25px;
+  font-size: 17px;
+}
+
+#wrap .home-clients .main-content {
+  border: unset;
+  padding-top: 0;
+  background-color: transparent;
+  background-image: linear-gradient(260deg, #7736ff 0%, #4521ff 100%);
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+  margin-bottom: 75px;
+  box-shadow: 0px 12px 45px -10px rgba(119, 54, 255, 0.6);
+  padding: 0px 30px;
+}
+
+#wrap .home-clients .main-content .tc-name:before {
+  content: '';
+}
+
+.ft-sub button.subscribe-box-submit:hover {
+  background: #222222 !important;
+  border-color: transparent;
+}
+
+#wrap .home-clients img {
+  margin: 0 auto;
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  position: static !important;
+  border-top-right-radius: 10px !important;
+  border-top-left-radius: 10px !important;
+}
+
+#wrap .home-clients .tc-name {
+  margin-top: -53px !important;
+  font-family: 'Catamaran';
+  font-size: 18px;
+  color: #000000 !important;
+  font-weight: 700;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding-top: 12px !important;
+}
+
+#wrap .home-clients .main-content .tc-name {
+  margin-top: -52px !important;
+}
+
+#wrap .home-clients .main-content .tc-name:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 7px 7px 7px;
+  border-color: transparent transparent #ffffff transparent;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: -7px;
+  background: unset;
+}
+
+#wrap .home-clients .tc-name,
+#wrap .home-clients .tc-job {
+  background: #ffffff;
+  width: 59%;
+  margin: 0 auto !important;
+  position: relative;
+  text-align: center;
+  padding: 0 21px;
+}
+
+#wrap .home-clients .tc-job {
+  font-family: 'Catamaran';
+  color: #757575;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  font-weight: 300;
+  text-transform: inherit;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  top: -7px;
+  padding-bottom: 4px;
+  line-height: 34px;
+}
+
+#wrap .home-clients .tc-content {
+  font-family: 'Lora';
+  font-style: italic;
+  font-size: 17px;
+  letter-spacing: 1px;
+  line-height: 24px;
+  color: #ffffff;
+  margin-top: 17px;
+  padding: 5px 0px 45px 0px;
+  letter-spacing: 0.3px;
+}
+@media screen and (min-width: 599px) {
+#wrap .home-clients .tc-item {
+  margin: 0 48px;
+}
+}
+#wrap .home-clients .owl-prev,
+#wrap .home-clients .owl-next {
+  font-size: 35px;
+}
+
+.ft-sub .subscribe-box-input:after {
+  display: none !important;
+}
+
+.ft-sub .subscribe-box-input input.subscribe-box-email {
+  background: #ffffff;
+  border-radius: 3px;
+  padding: 0 28px;
+}
+
+.ft-sub .subscribe-box-input input.subscribe-box-email::placeholder {
+  font-size: 17px;
+  font-family: 'Nunito';
+  color: #BBBBBB !important;
+  letter-spacing: 0.8px;
+}
+
+.ft-sub button.subscribe-box-submit {
+  background: unset !important;
+  border: 2px solid #ffffff;
+  border-radius: 3px !important;
+}
+.subscribe-modern .subscribe-box-input .subscribe-box-email {
+    width: 67%;
+}
+
+.ft-sub button.subscribe-box-submit {
+    width: 29% !important;
+}
+
+.subscribe-modern .subscribe-box-input span {
+    letter-spacing: 0px;
+}
+
+.ft-sub button.subscribe-box-submit span {
+  font-family: 'Nunito';
+  font-size: 15px;
+}
+
+.ft-sub .subscribe-box-input input.subscribe-box-email {
+  color: #222222;
+}
+
+.ft-menu .wn-custom-menu a:before {
+  display: none !important;
+}
+
+.ft-menu .wn-custom-menu a {
+  text-transform: capitalize;
+  font-size: 18px;
+  color: #89919a;
+  margin-bottom: 10px;
+  display: block;
+  transition: all 0.3s;
+}
+
+.ft-menu .wn-custom-menu a:hover {
+  color: #7736ff;
+}
+
+.ft-social-list a {
+  background: unset;
+  margin: 0;
+  padding: 16px 26px 0px 0px;
+}
+
+.ft-social-list a i {
+  font-size: 16px;
+  color: #89919a;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.ft-social-list a i:hover {
+  color: #7736FF;
+}
+
+.txt-ft:hover a {
+  color: #7736FF;
+}
+
+.ft-social-list .elementor-widget:not(:last-child) {
+  margin: 0;
+}
+
+#wrap .h-top-cli .owl-nav .owl-prev,
+#wrap .h-top-cli .owl-nav .owl-next {
+  font-size: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  box-shadow: 0 5px 3px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, 0);
+  background-color: #fff;
+  line-height: 47px;
+}
+
+#wrap .h-top-cli .tc-item {
+  margin: 0px 43px;
+}
+
+#wrap .h-top-cli .main-content {
+  box-shadow: 0px 25px 34px -6px rgba(119, 54, 255, 0.6);
+}
+
+#wrap .about-page h2 {
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin-top: 45px;
+}
+
+#wrap .about-page h5 {
+  font-weight: 300;
+}
+
+#wrap .contact-page-form input.wpcf7-submit {
+  float: left;
+  padding: 19px 60px 19px 60px;
+  font-size: 15px;
+  line-height: 1em;
+  letter-spacing: 2px;
+  background-color: transparent;
+  background-image: linear-gradient(110deg, #7736ff 0%, #4521ff 100%);
+  box-shadow: 0px 8px 60px -4px rgba(119, 54, 255, 0.6);
+  font-family: "Catamaran", Sans-serif;
+  font-weight: 500;
+  border-radius: 5px;
+  margin-top: 13px;
+}
+
+#wrap .contact-page-form .ajax-loader {
+  float: left;
+}
+
+#wrap .contact-page-form .wn-cnform {
+  margin: 0;
+}
+
+#wrap .contact-page-form textarea {
+  height: 112px;
+}
+
+#wrap .contact-page-form label {
+  color: #888888;
+  font-size: 16px;
+}
+
+#wrap .contact-page-form .wn-subject {
+  margin-top: 6px;
+}
+
+#wrap .contact-page-form .wn-mssg {
+  margin-top: 28px;
+}
+
+#wrap .contact-page-form .discover-contact-form {
+  overflow: visible;
+}
+
+#wrap .contact-page-form .wn-name,
+#wrap .contact-page-form .wn-subject,
+#wrap .contact-page-form .wn-mssg,
+#wrap .contact-page-form .contact-page {
+  padding-left: 0;
+}
+
+#wrap .services-icons a.magicmore:after {
+  content: '';
+}
+
+#wrap .services-icons a.magicmore {
+  font-size: 15px;
+  line-height: 1em;
+  letter-spacing: 2px;
+  background-color: transparent;
+  background-image: linear-gradient(110deg, #7736ff 0%, #4521ff 100%);
+  box-shadow: 0px 8px 60px -4px rgba(119, 54, 255, 0.6);
+  padding: 19px 43px 19px 43px;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+#wrap .services-icons a.magicmore:hover {
+  color: #ffffff;
+}
+
+#wrap .our-team-p h2,
+#wrap .our-team-p h5 {
+  letter-spacing: 0px;
+}
+
+#wrap .wn-header-avatar {
+  float: none;
+}
+
+#wrap .home-video-btn i:hover {
+  background-image: linear-gradient(110deg, #000000 0%, #333333 100%);
+}
+
+#wrap .services-icons a.magicmore:hover {
+  background-image: linear-gradient(110deg, #000000 0%, #333333 100%);
+  color: #ffffff;
+}
+
+footer input.subscribe-box-email:focus {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+footer .elementor-widget:not(:last-child) {
+  margin-bottom: 0px;
+}
+
+@media (max-width: 1300px) {
+  .ft-sub button.subscribe-box-submit {
+    display: block;
+    width: 100% !important;
+    clear: both;
+    margin-left: 0px !important;
+    top: 10px;
+  }
+
+  .ft-sub .subscribe-box-input input.subscribe-box-email {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+	.whb-responsive-menu-icon-wrap{
+		margin-left:20px;
+}
+	.marginLeft{
+		margin-left:20px;
+	}
+	.webnone{
+		display:none !important;
+	}
+  #wrap .services-icons p.content-style {
+    font-size: 14px;
+    padding: 0 5px;
+  }
+
+  #wrap .contact-page-form .wn-cnform {
+    padding-left: 0;
+  }
+
+  #wrap .about-page h2 {
+    font-size: 20px;
+  }
+
+  #wrap .about-page h5 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  #wrap .home-clients .tc-name,
+  #wrap .home-clients .tc-job {
+    width: 90%;
+  }
+
+  #wrap .home-clients .tc-item {
+    margin: 0 -7px;
+  }
+  #wrap .home-clients .main-content {
+    box-shadow: 0px 12px 30px -10px rgba(119, 54, 255, 0.6);
+  }
+}
+#wrap .contact-page-form .wn-cnform label{
+    background: transparent !important;
+}	
+.xuanting:hover{
+    
+    background-image: url(http://www.macautech.net/wp-content/uploads/2021/12/weixin.png);
+    background-position-y: bottom;
+    background-position-x: 10px;
+    background-size: 160px 160px;
+    width: 200px;
+    height: 470px;
+    margin-left: -73px;
+    margin-right: -80px;
+    background-repeat: no-repeat;
+}	
+
+.xuanting_tablets:hover{
+    background-image: url(http://www.macautech.net/wp-content/uploads/2021/12/weixin.png);
+    background-position-y: bottom;
+    background-position-x: 10px;
+    background-size: 160px 160px;
+    width: 300px;
+    height: 470px;
+    margin-left: -120px;
+    margin-right: -115px;
+    background-repeat: no-repeat;
+}			
+.xuanting_footer:hover{
+    background-image: url(http://www.macautech.net/wp-content/uploads/2021/12/weixin.png);
+    background-size: 160px 160px;
+    background-repeat: no-repeat;
+    background-position-y: 30px;
+    margin-left: -170px;
+    margin-top: 0px;
+    padding-top: -40px;
+    padding-left: 170px;
+    height: 180px;
+    width: 150px;
+    z-index: 99;
+}	
+#wrap .home-clients .main-content{
+    background-image: linear-gradient(260deg, #6bb24d 0%, #b0d47b 100%);
+    box-shadow: 0px 12px 45px -10px rgb(108 168 46 / 60%);
+}		
+.ft-social-list a i:hover {
+    color: #6bb24d;
+}	
+ul{
+    list-style-type:none;   
+}		
+#wrap .contact-page-form input.wpcf7-submit{
+    background-image: linear-gradient(110deg, #6bb24d 0%, #b0d47b 100%);
+        box-shadow: 0px 8px 60px -4px rgb(108 168 46 / 60%);
+}	
+.parent-pageid-6319{
+    overflow: hidden;
+}
+@media screen and (min-width: 1025px) and (max-width: 1199px){
+    .fab{
+        left: 10px !important;
+    }
+}
+@font-face
+{
+	font-family: NotoSansHansb;
+	src: url('assets/fonts/NotoSansHans/NotoSansHans-Bold.otf');
+}
+@font-face
+{
+	font-family: NotoSansHansr;
+	src: url('assets/fonts/NotoSansHans/NotoSansHans-Regular.otf');
+}
+#wrap .elementor-8 .wn-deep-innertitle {
+/*     font-family: "NotoSansHansb", Sans-serif !important; */
+}
+#wrap .elementor-8 .wn-deep-subtitle{
+/*     font-family: "NotoSansHansb", Sans-serif !important; */
+}
+#wrap .home-clients .tc-name{
+/*     font-family: "NotoSansHansb", Sans-serif !important; */
+}
+#wrap .elementor-8 h4.title-style{
+/*     font-family: "NotoSansHansb", Sans-serif !important; */
+}
+.wn-wrap h1, .wn-wrap h2, .wn-wrap h3, .wn-wrap h4, .wn-wrap h5, .wn-wrap h6{
+/*     font-family: "NotoSansHansb", Sans-serif !important; */
+}
+h1,li>a{
+/*     font-family: "NotoSansHansb", Sans-serif !important; */
+}
+.client-logo>p{
+/*     font-family: "NotoSansHansb", Sans-serif !important; */
+}
+img+p{
+/*     font-family: "NotoSansHansb", Sans-serif !important; */
+}
+.elementor-8 .elementor-heading-title{
+/*     font-family: "NotoSansHansr", Sans-serif !important; */
+}
+.elementor-8 a.button span{
+/*     font-family: "NotoSansHansr", Sans-serif !important; */
+}
+#wrap .home-clients .tc-content{
+/*     font-family: "NotoSansHansr", Sans-serif !important; */
+}
+#wrap .home-clients .tc-job{
+/*     font-family: "NotoSansHansr", Sans-serif !important; */
+}
+.elementor-8 p.content-style{
+/*     font-family: "NotoSansHansr", Sans-serif !important; */
+}
+li>p{
+/*     font-family: "NotoSansHansr", Sans-serif !important; */
+}	
+.client-logo>span{
+/*     font-family: "NotoSansHansr", Sans-serif !important; */
+}				
+body .wn-wrap p{
+/*     font-family: "NotoSansHansr", Sans-serif !important; */
+    font-size: 16px;
+}
+h6>a{
+/*     font-family: "NotoSansHansr", Sans-serif !important; */
+}
+.text>h3{
+    font-size: 20px;
+}
+.probootstrap-showcase-nav ul li.active p{
+    font-size: 15px;
+}
+.elementor-widget-container>h4{
+    font-size: 23px;
+}			
+.greensj:not(.elementor-motion-effects-element-type-background){
+	background-size: initial !important;
+}
+#wrap .home-clients .tc-content{
+    font-style: unset;
+}
+.swiper-slide-image{
+    zoom:1.27;
+}		
+@media screen and (min-width: 1490px){
+   .mediatitle {
+        width: 27.659%;
+} 
+.mediaface {
+    width: 26.341%;
+}
+}
+@media screen and (min-width: 1310px) and (max-width: 1490px){
+   .mediatitle {
+       width: 30.659%;
+} 
+.mediaface{
+    width: 28.341%;
+}
+}
+@media screen and (min-width: 1230px) and (max-width: 1309px){
+   .mediatitle {
+       width: 34.659%;
+} 
+.mediaface {
+    width: 31.341%;
+}
+}
+@media screen and (min-width: 1200px) and (max-width: 1229px){
+   .mediatitle {
+    width: 42.659%;
+} 
+.mediaface {
+    width: 38.341%;
+}
+}
+@media screen and (min-width: 1025px) and (max-width: 1199px){
+   .mediatitle {
+    width: 61.659%;
+} 
+.mediaface {
+    width: 62.341%;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+.mediatitle {
+    width: 11.659%;
+}
+    .mediaface {
+    width: 9.341%;
+}
+}
+@media screen and (min-width: 600px) and (max-width: 768px){
+    .mediaface {
+    width: 13.341%;
+}
+.mediatitle {
+    width: 14%;
+}
+}
+@media screen and (min-width: 510px) and (max-width: 599px){
+    .mediatitle {
+    width: 17%;
+}
+.mediaface {
+    width: 17%;
+}
+}
+@media screen and (min-width: 431px) and (max-width: 509px){
+    .mediatitle {
+    width: 22%;
+}
+    .mediaface {
+    width: 19%;
+}
+}
+@media screen and (min-width: 390px) and (max-width: 430px){
+    .mediatitle {
+    width: 25%;
+}
+.mediaface {
+    width: 21%;
+}
+}
+@media screen and (min-width: 190px) and (max-width: 389px){
+    .mediatitle {
+    width: 28%;
+}
+.mediaface {
+    width: 26%;
+}
+}
+.mediaface>svg{
+        height: 26px;
+        min-width: max-content;
+}
+.mediawei>svg{
+        height: 26px;
+        min-width: max-content;
+}
+#scroll-top a{
+        padding-top: 10px;
+}
+#scroll-top a:hover{
+       background: #71bd1e !important;
+}	
+@media screen and (min-width: 1876px){
+    .imagecarousal .owl-prev{
+            background-image: url(http://www.macautech.net/wp-content/uploads/2022/03/left.png);
+            background-size: 10px;
+            position: relative;
+            margin-left: -16px;
+            margin-top: -32px;
+            width: 10px;
+            height: 30px;
+            background-repeat: no-repeat;
+    }
+    .imagecarousal .owl-next{
+            background-image: url(http://www.macautech.net/wp-content/uploads/2022/03/right.png);
+            background-size: 10px;
+            background-position: right;
+            position: relative;
+            margin-right: -18px;
+            width: 10px;
+            float: right;
+            margin-top: -41px;
+            height: 30px;
+            background-repeat: no-repeat;
+    }
+    .imagecarousal div div div{
+            width: 55px;
+            margin-left: -1.72px;
+            padding: 8px;
+    }
+    .imagecarousal .owl-nav{
+            padding-bottom: 10px;
+    }
+    .imagecarousal{
+           zoom: 5;
+    }
+}	
+@media screen and (min-width: 1200px) and (max-width: 1875px){
+           .imagecarousal .owl-nav{
+            margin-bottom: 3%;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 1876px){
+        .imagecarousal .owl-prev{
+                background-image: url(http://www.macautech.net/wp-content/uploads/2022/03/left.png);
+                background-size: 30px;
+                position: relative;
+                margin-left: -2%;
+                width: 20px;
+                margin-top: -9%;
+                height: 160px;
+                background-repeat: no-repeat;
+    }
+        .imagecarousal .owl-next{
+                       background-image: url(http://www.macautech.net/wp-content/uploads/2022/03/right.png);
+                        background-size: 30px;
+                        background-position: right;
+                        position: relative;
+                        margin-right: -2%;
+                        width: 20px;
+                        float: right;
+                        margin-top: -211px;
+                        height: 130px;
+                        background-repeat: no-repeat;
+    }
+    .imagecarousal{
+                margin-top: 2%;
+    }
+}	
+    .imagecarousal .owl-nav.disabled{
+            display: block;
+}
+@media screen and (min-width: 600px){
+    .footer600{
+        display:none;
+    }
+}
+@media screen and (max-width: 599px){
+    .footermax{
+        display:none;
+    }
+    .footer600{
+        display:block;
+    }
+    .footertitle600{
+        padding-top: 30px;
+    }
+    .footer600 .owl-dot{
+        background: unset;
+    }
+	.footer600 .owl-nav{
+		display:none;
+	}
+}
+@media screen and (max-width: 1024px){
+    .fooyemian > .elementor-element-populated {
+        margin: unset;
+        --e-column-margin-right: unset;
+        --e-column-margin-left: unset;
+}
+    .footerthree{
+        margin-top: -50px;
+    }
+}	
+.imagecarousal .owl-nav.disabled{
+		display: block !important;
+}
+@media screen and (min-width: 1200px) and (max-width: 1407px){
+	.footermax > .elementor-container{
+    width: 1170px  !important;
+}
+}
+.footer600{
+	background-position-x: center;
+}
+.footer600 .owl-dots{
+			display: none;
+}
+@media screen and (max-width:1024px){
+			.fooyemian > .elementor-element-populated {
+    			margin: unset  !important;
+	}
+}
+@media only screen and (min-width: 481px) and (max-width: 767px){
+	.footer600 .container {
+    		width: 100%  !important;
+}
+}
+.footer600 .container {
+    margin-right: unset  !important;
+    margin-left: unset  !important;
+    padding-left: unset  !important;
+    padding-right: unset  !important;
+}
+.footer600 .ol-pre:after{
+	position: relative  !important;
+	line-height: unset  !important;
+    padding: 5px  !important;
+	color:#000000  !important;
+}
+.footer600 .ol-nxt:after{
+	position: relative  !important;
+	line-height: unset  !important;
+    padding: 5px  !important;
+	color:#000000  !important;
+}
+.footer600 .owl-prev{
+	transform: rotate(270deg);
+    float: left;
+    margin-top: -53%;
+    margin-left: -7px;
+    zoom: 0.8;
+}
+.footer600 .owl-next{
+	transform: rotate(270deg);
+    float: right;
+    margin-top: -53%;
+    margin-right: -70px;
+    zoom: 0.8;
+}
+.profession .tc-item{
+	margin: auto !important;
+}
+.profession .owl-prev:hover{
+	color:#6dbb4d !important;
+}
+.profession .owl-next:hover{
+	color:#6dbb4d !important;
+}
+.lunbo49063f0 .elementor-swiper-button-prev{
+	left: -50px;
+}
+.lunbo49063f0 .elementor-swiper-button-next{
+	right: -50px;
+}
+@media only screen and (max-width: 500px){
+	.lunbo49063f0 .elementor-swiper-button-prev{
+	zoom: 0.7;
+}
+.lunbo49063f0 .elementor-swiper-button-next{
+	zoom: 0.7;
+}
+}
+@media only screen and (max-width: 767px){
+	.fuwunull{
+		display:none;
+	}
+}
+#scroll-top a {
+    padding-top: 6px;
+}
+	.shouyeanli .container{
+	width: 100%;
+}
+@media only screen and (min-width: 1500px){
+	.shouyeanli .container{
+	width: 1500px;
+}
+}
+@media only screen and (min-width: 1500px){
+	#serveranli .container{
+	width: 1500px;
+}
+}
+#case-main .tc-content p {
+    font-style: unset !important;
+}
+li{
+	list-style:none;
+}
+.hcolorf{
+	color: #6bb24d;
+}
+.shouyeanli .elementor-element-populated{
+	box-shadow: unset !important;
+}
+#wpadminbar {
+  position: absolute!important;
+}
+@media screen and (min-width: 1200px){
+	.wn-footer .linkmax {
+    width: 100% !important;
+}
+}
+@media screen and (max-width: 600px){
+	.wn-footer .link600 {
+    width: 100% !important;
+}
+	.shouyeaboutwe{
+		margin-top: -50px;
+	}
+	.shouyeservice{
+		margin-top: -130px;
+	}
+	.shouyeanli{
+		margin-top: -60px;
+	}
+	.lianxinumber>.elementor-widget-wrap{
+		margin-top: 60px !important;
+	}
+	.sybu{
+		text-align: center;
+	}
+}
+
+ul li.menu-item:hover > a{
+	color:unset !important;
+}
+ul.sub-menu li.current>a{
+    color: #6bb24d !important;
+}
+ul.sub-menu li.current>a{
+    color: #6bb24d !important;
+}
+ul li.menu-item:hover > a{
+	color:unset !important;
+}
+#wrap .colorf, #wrap .hcolorf:hover, body .colorf, body .hcolorf:hover{
+	color:unset !important;
+}
+.whb-wrap .whb-nav-wrap .nav ul.sub-menu li.current>a{
+	color: #6bb24d !important;
+}
+html {
+    margin-top: 0px !important;
+}
+.contact-page-form input[type=submit]:hover{
+	color: #FFFFFF !important;
+	cursor: pointer;
+	background-color: transparent !important;
+    background-image: linear-gradient(180deg, #6BB24D 0%, #B0D47B 100%) !important;
+}
+.profession .main-content{
+	margin-top: 14px;
+}
+@media screen and (min-width: 1269px){
+#case-main .tc-content{
+	margin: -10px 0px 20px !important;
+	text-align: justify;
+}
+}
+ .tc-content{
+		margin: 0px 14px 20px;
+}
+	@media screen and (max-width:599px) { 
+	#wrap .home-clients .tc-content{
+		margin: 15px 2px 0px !important;
+		text-align: justify;
+	}
+		#wrap .shouyeanli .home-clients .tc-content{
+		margin: 15px -4px 0px !important;
+		text-align: justify;
+	}
+		#serveranli .home-clients .tc-content
+		{
+			margin: 15px -3px 0px !important;
+			text-align: justify;
+		}
+		#case-main .uls .item{
+			height: 750px;
+		}
+		#case-main .tc-content{
+			    margin: -10px -10px 0px !important;
+				text-align: justify;
+				font-size: 19px;
+		}
+		#case-main .tc-content p{
+				font-size: 21px !important;
+		}
+		body{
+			    margin-top: 50px !important;
+		}
+		.whb-responsive-menu-wrap{
+				top:0 !important;
+		}
+		#wpadminbar{
+			display:none !important;
+		}
+		.whb-mobiles-view{
+          	position: fixed;
+			background-color: white;
+			top: 0;
+			width:100%;
+			margin-top: 0px;
+			z-index: 999;
+/* 			    height: 83px;
+    		margin-top: -15px; */
+}
+		.wpcf7-response-output{
+			margin-left: 5.9% !important;
+			margin-right: 5.9% !important;
+			width: 100% !important;
+		}
+	}
+@media screen and (min-width: 1420px) { 
+	.main-content{
+		height:20.8em;
+	}
+	#serveranli .main-content{
+		height:292px;
+	}
+}
+@media screen and (max-width: 549px) { 
+	.main-content{
+		height:21em;
+	}
+	#serveranli .main-content{
+		height:17em;
+	}
+		#case-main .tc-item {
+	 margin: 0 -20px !important;
+}
+	#moreit .tc-item {
+	 margin: 0 -7px !important;
+}
+	#moreanli .tc-content{
+		margin: -10px 10px 0px !important;
+	}
+	#moreanli .tc-content p{
+     margin: 30px 3px 15px 20px !important;
+    text-align: justify;
+}
+}
+#case-main .tc-content p{
+    font-weight: 400 !important;
+}
+.fooh6 h6{
+	font-size: 16px;
+	font-weight: 300;
+}
+ @media only screen and (max-width: 380px){
+	body #wrap #webnus-header-builder [data-id=whb-logo-1639639994429] img.whb-logo {
+    width: 175px !important;
+    height: 38px !important;
+}
+} 

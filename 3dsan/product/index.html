@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <title>普及科技3d模型展示方案</title>
+
+    <script src="./js/three.min.js"></script>
+    <script src="./js/MTLLoader.js"></script>
+    <script src="./js/OBJLoader.js"></script>
+    <script src="./js/DDSLoader.js"></script>
+    <!-- <script src="./js/TrackballControls.js"></script> -->
+    <script src="./js/Detector.js"></script>
+    <script src="./js/DRACOLoader.js"></script>
+    <script src="./js/GLTFLoader.js"></script>
+    <script src="./js/OrbitControls.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css"> -->
+</head>
+
+<body>
+    <!--进度条-->
+    <div id="progress" class="progress">
+        <div class="mask"></div>
+        <div class="msg">模型加載中</div>
+        <div class="loading">
+            
+            <div class="trends"></div>
+        </div>
+    </div>
+    <!-- <div class="out">
+        <ul>
+            <li title="停止自转"><i class="fa fa-ban" aria-hidden="true"></i></li>
+            <li title="开启自转"><i class="fa fa-refresh" aria-hidden="true"></i></i></li>
+        </ul>
+    </div> -->
+   
+   <!-- 点击效果函数 -->
+   <script>
+        
+    // let lione=document.querySelector('.lione')
+    // let litwo=document.querySelector('.litwo')
+    // let showone=document.querySelector('.showone')
+    // let showtwo=document.querySelector('.showtwo')
+    // let topleft=document.querySelector('.topleft')
+    // var arrows=document.querySelector('.fa-arrows-alt')
+    var out=document.querySelector('.out')
+    var ban=document.querySelector('.fa-ban')
+    var refresh=document.querySelector('.fa-refresh')
+    var footer=document.querySelector('.footer')
+    var bottom=document.querySelector('.bottom')
+    var faupdown=document.querySelector('.faupdown')
+   var footershow=false
+
+    //初始隐藏    
+    // topleft.style.display='none'
+    // out.style.display='none'
+    // showone.style.display='none'
+    // bottom.style.display='none'
+    // showtwo.style.display='none'
+// 初始化判断pc还是手机端
+    var os = function () {
+            var ua = navigator.userAgent,
+                isWindowsPhone = /(?:Windows Phone)/.test(ua),
+                isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+                isAndroid = /(?:Android)/.test(ua),
+                isFireFox = /(?:Firefox)/.test(ua),
+                isChrome = /(?:Chrome|CriOS)/.test(ua),
+                isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+                isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+                isPc = !isPhone && !isAndroid && !isSymbian;
+            return {
+                isTablet: isTablet,
+                isPhone: isPhone,
+                isAndroid: isAndroid,
+                isPc: isPc
+            };
+        }();
+                if(os.isAndroid||os.isPhone){
+                    topleft.style.width='200px'
+                    topleft.style.height='80px'
+                    out.style.display='none'
+                }
+         
+                  
+    
+    // 停止自转
+    // ban.onclick=function(){
+    //     showAutoRotate=false
+    //     controls.autoRotate = false;
+        
+    // }
+    // 开启自转
+    // refresh.onclick=()=>{
+    //     controls.autoRotate = true;
+    //     showAutoRotate=true
+    // }
+    
+    // 全屏开启函数
+    function requestFullScreen(element) {   
+        var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;   
+        if (requestMethod) {     
+            requestMethod.call(element);   
+        } else if (typeof window.ActiveXObject !== "undefined") {     
+            var wscript = new ActiveXObject("WScript.Shell");   
+            if (wscript !== null) {   
+                wscript.SendKeys("{F11}");   
+            }   
+        }   
+    }   
+</script>
+    <!-- 3D文件函数 -->
+    <script>
+        // 相关测试参数 
+        // path是绝对路径
+        // pathName是案例文件名
+
+        // obj加载器文件名称
+        var objArr = {
+            "test": {
+                path: "./file/",//设置路径
+                pathName: "jaguar-steel-wheel/source/myhweekl" //设置名字
+          },
+        };
+
+        // gltf加载器文件名称
+        var paths="./file/bag.gltf"
+
+        //设置旋转速度
+        var rotateSpeed = 1
+        //设置相机距离原点的最远距离 
+        var minDistance = 500
+        //设置相机距离原点的最远距离 
+        var maxDistance = 1500;
+        // 设置阻尼的强度
+        var dynamicDampingFactor=1
+        //网格模型缩放
+        var s1=70,s2=70,s3=70
+        //灯光强度
+        var lighting=0.002
+         //模型旋转角度
+         var r1=-1.5,r2=0,r3=0
+
+        // 设置名称
+        setName("test");
+        var path, pathName;
+        function setName(name) {
+            path = objArr[name].path;
+            pathName = objArr[name].pathName;
+        }
+        
+        // 容器
+        var container,
+            // 控制器
+            controls;
+        // 镜头
+        var camera,
+            // 场景
+            scene,
+            // 渲染
+            renderer;
+            // 判断pc还是手机
+        var showphone=false
+          // 按钮停止模型的自动旋转
+        var showAutoRotate=false
+            // 检测浏览器兼容
+            if (Detector.webgl) {
+                // alert('浏览器支持');
+                // 判断手机还是PC端
+                var os = function () {undefined
+                var ua = navigator.userAgent,
+                    isWindowsPhone = /(?:Windows Phone)/.test(ua),
+                    isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+                    isAndroid = /(?:Android)/.test(ua),
+                    isFireFox = /(?:Firefox)/.test(ua),
+                    isChrome = /(?:Chrome|CriOS)/.test(ua),
+                    isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+                    isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+                    isPc = !isPhone && !isAndroid && !isSymbian;
+                return {
+                    
+                    isTablet: isTablet,
+                    isPhone: isPhone,
+                    isAndroid: isAndroid,
+                    isPc: isPc
+                };
+            }();
+                    if(os.isPc){
+                        init();
+                        animate();
+                    }else if(os.isAndroid||os.isPhone){
+                        showphone=true
+                        init();
+                        animate();
+                    }
+            } else {
+                alert('浏览器不支持');
+            }
+        
+            //初始化
+            function init() {
+
+                container = document.createElement('div');
+                document.body.appendChild(container);
+
+                //创建一个一个视角                                                                     
+                camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 6000);
+
+                //设置视角离原点的位置（眼睛距离模型的距离） 
+                camera.position.z = 700;
+
+                //控制器
+                controls = new THREE.OrbitControls(camera,container);
+                //设置旋转速度
+                controls.rotateSpeed = rotateSpeed;
+
+                // 使动画循环使用时阻尼或自转 意思是否有惯性 
+                controls.staticMoving  = false;
+                controls.dynamicDampingFactor=dynamicDampingFactor
+                //是否可以缩放 
+                // controls.enableZoom = true;
+                //是否自动旋转 
+                controls.autoRotate = false;
+               
+                //设置相机距离原点的最远距离 
+                controls.minDistance = minDistance;
+                //设置相机距离原点的最远距离 
+                controls.maxDistance = maxDistance;
+                //是否开启右键拖拽 右鍵拖拽會變形
+                controls.enablePan = false;
+
+                // controls.object.position.set(0,0.5,1)
+
+                //模型在pc端和手机端拖动判断
+                // document.addEventListener('touchstart', lock);//手机端
+                // document.addEventListener('touchend', unlock(3000));//手机端
+                // controls.addEventListener('start',lock);//pc端
+                // controls.addEventListener('end',unlock(2000));//pc端
+
+                // 拖动触发停止转动
+                // function lock() {
+                //     // 判断是否停止自转
+                //     // if(showAutoRotate==false) return
+                //      controls.autoRotate = false;
+                // }
+                // 2秒后转动
+            //    function unlock(sum){
+            //         // 判断是否停止自转
+                    
+            //                 var timer
+            //                 return function(){
+            //                     if(timer){
+            //                         clearTimeout(timer)
+            //                     }
+            //                     if(showAutoRotate==false) return
+            //                     timer = setTimeout(()=>{
+                                    
+            //                         controls.autoRotate = true;
+            //                     },sum)
+            //                 }  
+            //     }
+
+                // scene 创建一个场景
+                scene = new THREE.Scene();
+                // 设置场景背景色 
+                // scene.background = new THREE.Color( 0xffffff);
+                scene.background = new THREE.Color( 0xDBD8D8);
+                // 雾化
+                // scene.fog = new THREE.Fog(0xffffff, 100, 5000);
+                console.log(scene)
+                    // const shadowMesh = createSpotShadowMesh();
+					// shadowMesh.position.y = - 170;
+					// shadowMesh.rotation.x = -Math.PI/2;
+					// shadowMesh.scale.setScalar( 120 );
+					// scene.add( shadowMesh );
+                  
+                //创建一个环境灯光
+                var ambientLight = new THREE.AmbientLight(0xffffff);
+                scene.add(ambientLight);
+                // // 创建一个点灯光
+                var pointLight = new THREE.PointLight(0xffffff,lighting);
+                pointLight.position.set( 100, 100, 100 );
+                // //给模型添加灯光
+                scene.add(pointLight);
+
+    
+                // model  开始创建模型
+                //进度通知
+                var onProgress = function (xhr) {
+                    // console.log(xhr)
+                    if (xhr.lengthComputable) {
+
+                        var percentComplete = xhr.loaded / xhr.total * 100;
+                        // console.log( Math.round( percentComplete, 2 ) + '% downloaded' );
+                        play(Math.round(percentComplete, 2))
+
+                    }
+
+                };
+                //报错通知
+                var onError = function (xhr) {};
+
+                // 添加操作器
+                THREE.Loader.Handlers.add(/\.dds$/i, new THREE.DDSLoader());
+// ---------------------------------加载mtl和obj文件----------------------------------------- 
+
+                // var mtlLoader = new THREE.MTLLoader()
+                //     .setPath(path)
+                //     .load(pathName + '.mtl', function (materials) {
+                //         console.log(materials)
+                //         materials.preload();
+                //         // 加载objbhl;
+                //         new THREE.OBJLoader()
+                //             .setMaterials(materials)
+                //             .setPath(path)
+                //             .load(pathName + '.obj', function (object) {
+                //                 console.log(object)
+                //                 // 设置旋转中心点
+                //                 // object.children[0].geometry.computeBoundingBox()
+                //                 // 设原地旋转
+                //                 object.children[0].geometry.center()
+                //                 //设置物体旋转角度
+                //                 object.rotation.set(r1,r2,r3)
+                //                 //网格模型缩放
+                //                 object.children[0].scale.set(s1, s2, s3);
+                //                 // object.children[0].castShadow = true;
+                //                 //     // 判断模型是否有贴图，贴图转换增加亮度
+                //                 //     if(object.children[0].isMesh){
+                //                 //     object.children[0].material.emissive =  object.children[0].material.color;
+                //                 //     object.children[0].material.emissiveMap = object.children[0].material.map ;
+                //                 //     }
+                //                 // 将模型加入到场景
+                //                 scene.add(object);
+                //                 // 开启弹框文件
+                //                 // topleft.style.display='flex'
+                //                 // if(!showphone) out.style.display='flex'
+                                
+                //             }, onProgress, onError);
+                //         })
+// -----------------------------------------------------------------------------------------
+
+// ------------------------------加载gltf和算法文件draco--------------------------------------
+                
+                const gltfLoader = new THREE.GLTFLoader()
+                        // const dracoLoader=new THREE.DRACOLoader();//算法文件
+                        // THREE.DRACOLoader.setDecoderPath('./draco/gltf/');
+                        // gltfLoader.setDRACOLoader(dracoLoader);
+                        gltfLoader.load(paths,//引入压缩的gltf模型
+                            function(gltf){ // 这个obj就是解析后的模型，可添加到scene内。
+                                
+                                // gltf.scenes[0].children[0].geometry.computeBoundingBox();
+                                gltf.scenes[0].children[0].geometry.center();
+                                gltf.scenes[0].children[0].scale.set(s1, s2, s3); 
+                                gltf.scenes[0].rotation.set(r1,r2,r3);
+                                // console.log('gltfs', gltf)
+                                // gltf.scenes[0].children[0].frustumCulled = false;
+                                // //模型阴影
+                                // gltf.scenes[0].children[0].castShadow = true;
+                                // // 判断模型是否有贴图，贴图转换增加亮度
+                                // if(gltf.scenes[0].children[0].isMesh){
+                                //     gltf.scenes[0].children[0].material.emissive =  gltf.scenes[0].children[0].material.color;
+                                //     gltf.scenes[0].children[0].material.emissiveMap = gltf.scenes[0].children[0].material.map ;
+                                // }
+                                console.log('gltfs', gltf)
+                                scene.add(gltf.scene);
+                                // 在场景中添加物体
+                                // topleft.style.display='flex'
+                                // if(!showphone) out.style.display='flex'
+                                // setTimeout(()=>{
+                                //     controls.autoRotate = true;
+                                // },2000)
+                    }, onProgress, onError)
+//---------------------------------------------------------------------------------------------
+
+                //创建一个webgl对象
+                renderer = new THREE.WebGLRenderer({
+                    antialias: true,
+                    alpha: true // 设置透明
+                });
+                // 设置颜色
+                // 设置分辨率
+                renderer.setPixelRatio(window.devicePixelRatio);
+                // linear转gamma2.2
+                renderer.gammaOutput = true;
+                // 进行gamma校正，校正后的gamma2.2颜色空间与sRGB相似。
+                renderer.gammaFactor = 2.2;
+                // 设置渲染尺寸
+                // renderer.shadowMap.enabled = true;//设置阴影
+                renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                container.appendChild(renderer.domElement);
+                // 自适应监听
+                window.addEventListener('resize', resize, false);
+
+            }
+            function createSpotShadowMesh() {
+
+                    const canvas = document.createElement( 'canvas' );
+                    canvas.width = 128;
+                    canvas.height = 128;
+
+                    const context = canvas.getContext( '2d' );
+                    const gradient = context.createRadialGradient( canvas.width / 2, canvas.height / 2, 0, canvas.width / 2, canvas.height / 2, canvas.width / 2 );
+                    gradient.addColorStop( 0.1, 'rgba(130,130,130,1)' );
+                    gradient.addColorStop( 1, 'rgba(255,255,255,1)' );
+
+                    context.fillStyle = gradient;
+                    context.fillRect( 0, 0, canvas.width, canvas.height );
+
+                    const shadowTexture = new THREE.CanvasTexture( canvas );
+
+                    const geometry = new THREE.PlaneGeometry();
+                    const material = new THREE.MeshBasicMaterial( {
+                        map: shadowTexture, blending: THREE.MultiplyBlending, toneMapped: false
+                    } );
+
+                    const mesh = new THREE.Mesh( geometry, material );
+                    mesh.rotation.x = - Math.PI / 2;
+
+                    return mesh;
+
+                    }
+
+            // 监听窗口自适应
+            function resize() {
+
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+
+                renderer.setSize(window.innerWidth, window.innerHeight);
+
+            }
+
+            // 时刻渲染
+            function animate() {
+                controls.update();
+                renderer.render(scene, camera);
+                requestAnimationFrame(animate);
+
+            }
+    //纹理加载是异步的。需要将大部分代码放入加载器回调函数中，所以采取下面这种写法把改变纹理的代码放在回调函数中
+            /**obj: 代表3d模型**/
+                /**map: 代表图片地址**/
+                function changeModelMap(obj, map){
+                    new THREE.TextureLoader().load(map, function(texture){
+                            //以便在下次使用纹理时触发一次更新
+                            texture.needsUpdate = true;
+                            obj.material.map = texture;
+                        });
+                }
+
+            // 这是一个进度条函数进度条函数
+            function play(a) {
+                document.getElementsByClassName("trends")[0].style.width = a + "%";
+                if (a < 100) {
+                    document.getElementById("progress").style.display = "block";
+                } else {
+                    document.getElementById("progress").style.display = "none";
+                }
+            }
+    </script>
+     
+  
+</body>
+
+</html>
